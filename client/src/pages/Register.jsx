@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useAuth } from '../context/AuthContext'
+import { API_URL } from '../config'
 
 export default function Register() {
   const [name, setName] = useState('')
@@ -14,7 +15,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/auth/register', { name, email, password })
+      const res = await axios.post(`${API_URL}/api/auth/register`, { name, email, password })
       login(res.data.token, res.data.user)
       navigate('/')
     } catch (err) {

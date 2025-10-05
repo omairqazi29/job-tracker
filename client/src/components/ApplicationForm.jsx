@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { API_URL } from '../config'
 
 export default function ApplicationForm({ application, onClose, token }) {
   const [formData, setFormData] = useState({
@@ -32,11 +33,11 @@ export default function ApplicationForm({ application, onClose, token }) {
     e.preventDefault()
     try {
       if (application) {
-        await axios.put(`/api/applications/${application._id}`, formData, {
+        await axios.put(`${API_URL}/api/applications/${application._id}`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         })
       } else {
-        await axios.post('/api/applications', formData, {
+        await axios.post(`${API_URL}/api/applications`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         })
       }

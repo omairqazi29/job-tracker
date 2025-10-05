@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import { FiPlus, FiLogOut, FiEdit2, FiTrash2 } from 'react-icons/fi'
 import ApplicationForm from '../components/ApplicationForm'
 import StatsCard from '../components/StatsCard'
+import { API_URL } from '../config'
 
 export default function Dashboard() {
   const [applications, setApplications] = useState([])
@@ -20,7 +21,7 @@ export default function Dashboard() {
 
   const fetchApplications = async () => {
     try {
-      const res = await axios.get('/api/applications', {
+      const res = await axios.get(`${API_URL}/api/applications`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setApplications(res.data)
@@ -31,7 +32,7 @@ export default function Dashboard() {
 
   const fetchStats = async () => {
     try {
-      const res = await axios.get('/api/applications/stats', {
+      const res = await axios.get(`${API_URL}/api/applications/stats`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setStats(res.data)
@@ -43,7 +44,7 @@ export default function Dashboard() {
   const handleDelete = async (id) => {
     if (!confirm('Are you sure you want to delete this application?')) return
     try {
-      await axios.delete(`/api/applications/${id}`, {
+      await axios.delete(`${API_URL}/api/applications/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchApplications()
