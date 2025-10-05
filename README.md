@@ -2,6 +2,8 @@
 
 A full-stack web application for tracking job applications, interviews, and responses.
 
+**🚀 [Live Demo](https://omairqazi29.github.io/job-tracker/)**
+
 ## Features
 
 - Track job applications across multiple companies
@@ -34,8 +36,10 @@ A full-stack web application for tracking job applications, interviews, and resp
 
 ## Deployment
 
-- **Backend**: Deploy on Render
-- **Frontend**: Deploy on GitHub Pages
+- **Backend**: Deployed on [Render](https://job-tracker-jbxz.onrender.com)
+- **Frontend**: Deployed on [GitHub Pages](https://omairqazi29.github.io/job-tracker/)
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## License
 

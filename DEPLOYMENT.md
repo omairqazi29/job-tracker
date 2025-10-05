@@ -35,8 +35,12 @@
 
 ## Update Frontend API URL
 
-After deploying backend to Render, update the API URL in your frontend:
+The frontend is already configured to use the production backend URL in `client/src/config.js`:
 
-In `client/vite.config.js`, update the proxy target or add an environment variable for the production API URL.
+```javascript
+export const API_URL = import.meta.env.VITE_API_URL || 'https://job-tracker-jbxz.onrender.com'
+```
 
-For production builds, set `VITE_API_URL` environment variable in your build process.
+If you need to change the backend URL, either:
+1. Update the default value in `client/src/config.js`
+2. Set `VITE_API_URL` environment variable in your GitHub Actions workflow
